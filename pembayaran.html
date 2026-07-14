@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Pembayaran - Arga Privè</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+
+<h2>Arga Privè</h2>
+
+</div>
+
+
+</header>
+
+
+
+
+<section class="produk">
+
+
+<h2>Pembayaran</h2>
+
+
+
+<div class="card pembayaran-card">
+
+<h3>Pilih Metode Pembayaran</h3>
+
+
+
+<br>
+
+
+<label>
+
+<input type="radio" name="bayar">
+
+Transfer Bank
+
+</label>
+
+
+<br><br>
+
+
+<label>
+
+<input type="radio" name="bayar">
+
+QRIS
+
+</label>
+
+
+<br><br>
+
+
+<label>
+
+<input type="radio" name="bayar">
+
+Alfamart
+
+</label>
+
+
+<br><br>
+
+
+<label>
+
+<input type="radio" name="bayar">
+
+Indomaret
+
+</label>
+
+
+<br><br>
+
+
+<label>
+
+<input type="radio" name="bayar">
+
+Bayar di Tempat (COD)
+
+</label>
+
+
+
+<br><br><br>
+
+
+
+<button class="bayar" onclick="bayarSekarang()">
+
+Bayar Sekarang
+
+</button>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+<footer>
+
+<p>
+© 2026 ARGA PRIVE
+</p>
+
+</footer>
+
+
+
+
+
+<script>
+
+
+function bayarSekarang(){
+
+
+let metode = document.querySelector(
+'input[name="bayar"]:checked'
+);
+
+
+
+if(!metode){
+
+
+alert("Silahkan pilih metode pembayaran terlebih dahulu");
+
+
+return;
+
+
+}
+
+
+
+alert(
+"Pesanan berhasil dibuat dengan metode pembayaran: "
++ metode.parentElement.innerText
+);
+
+
+
+localStorage.removeItem("keranjang");
+
+
+
+window.location.href="home.html";
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>

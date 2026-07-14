@@ -1,0 +1,799 @@
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+body{
+
+    background:#f7f7f7;
+
+    color:#111;
+
+}
+
+
+
+/* ================= HEADER ================= */
+
+
+header{
+
+    background:#111;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:18px 60px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    box-shadow:0 3px 15px rgba(255,215,0,0.25);
+
+}
+
+
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+
+.logo img{
+
+    border-radius:50%;
+
+}
+
+
+
+.logo h2{
+
+    color:#FFD700;
+
+    font-size:28px;
+
+    letter-spacing:2px;
+
+}
+
+
+
+
+/* ================= NAV ================= */
+
+
+nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+}
+
+
+
+nav ul li{
+
+    margin-left:25px;
+
+}
+
+
+
+nav ul li a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+
+nav ul li a:hover{
+
+    color:#FFD700;
+
+}
+
+
+
+
+
+/* ================= SEARCH ================= */
+
+
+.fitur{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+
+#search{
+
+    width:200px;
+
+    padding:10px 15px;
+
+    border-radius:25px;
+
+    border:none;
+
+}
+
+
+
+.fitur button{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#FFD700;
+
+    cursor:pointer;
+
+}
+
+
+
+.cart{
+
+    color:#FFD700;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* ================= HERO ================= */
+
+
+.hero{
+
+    background:#111;
+
+    color:#FFD700;
+
+    text-align:center;
+
+    padding:80px 30px;
+
+}
+
+
+
+.hero h1{
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.hero p{
+
+    color:white;
+
+    max-width:800px;
+
+    margin:auto;
+
+    margin-bottom:30px;
+
+    line-height:1.6;
+
+}
+
+
+
+.btn{
+
+    display:inline-block;
+
+    background:#FFD700;
+
+    color:#111;
+
+    padding:14px 45px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* ================= PRODUK ================= */
+
+
+.produk{
+
+    padding:60px;
+
+}
+
+
+
+.produk h2{
+
+    text-align:center;
+
+    font-size:35px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.produk-list{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+
+
+/* ================= CARD PRODUK ================= */
+
+
+.card{
+
+    width:230px;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    text-align:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.card img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+}
+
+
+
+.card h3{
+
+    margin:15px 0 10px;
+
+}
+
+
+
+.card p{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+/* ================= BUTTON BELI ================= */
+
+
+.card button{
+
+    width:90%;
+
+    padding:12px;
+
+    background:#111;
+
+    color:#FFD700;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+
+.card button:hover{
+
+    background:#FFD700;
+
+    color:#111;
+
+}
+
+
+
+
+
+/* ================= KERANJANG ================= */
+
+
+#isiKeranjang{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:25px;
+
+}
+
+
+
+#isiKeranjang .card{
+
+    text-align:center;
+
+}
+
+
+
+#isiKeranjang .card h3{
+
+    text-align:center;
+
+}
+
+
+
+#isiKeranjang .card p{
+
+    text-align:center;
+
+}
+
+
+
+#isiKeranjang span{
+
+    display:inline-block;
+
+    margin:0 15px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* tombol hapus */
+
+#isiKeranjang button:last-child{
+
+    background:#111;
+
+    color:#FFD700;
+
+}
+
+
+
+#isiKeranjang button:last-child:hover{
+
+    background:#FFD700;
+
+    color:#111;
+
+}
+
+
+
+
+
+
+
+/* ================= TOTAL HARGA ================= */
+
+
+#totalHarga{
+
+    text-align:center;
+
+    margin-top:30px;
+
+}
+
+
+
+
+
+
+/* ================= BAYAR SEKARANG ================= */
+
+
+.checkout{
+
+    display:block;
+
+    width:250px;
+
+    margin:30px auto;
+
+    padding:15px;
+
+    text-align:center;
+
+    background:#111;
+
+    color:#FFD700;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+
+
+.checkout:hover{
+
+    background:#FFD700;
+
+    color:#111;
+
+}
+
+
+
+
+
+
+/* ================= PEMBAYARAN ================= */
+
+
+.pembayaran-card{
+
+    width:400px;
+
+    margin:40px auto;
+
+    text-align:center;
+
+}
+
+
+
+.pembayaran-card h3{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.pembayaran-card label{
+
+    display:block;
+
+    text-align:left;
+
+    margin:15px 0;
+
+    font-size:18px;
+
+}
+
+
+
+.pembayaran-card input[type="radio"]{
+
+    width:auto;
+
+    margin-right:10px;
+
+}
+
+
+
+
+.bayar{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#111;
+
+    color:#FFD700;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+
+.bayar:hover{
+
+    background:#FFD700;
+
+    color:#111;
+
+}
+
+
+
+
+
+
+/* ================= FORM ================= */
+
+
+input,select{
+
+    padding:12px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+}
+
+
+
+
+
+
+/* ================= FOOTER ================= */
+
+
+footer{
+
+    background:#111;
+
+    color:#FFD700;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin-top:50px;
+
+}
+
+
+
+
+
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:900px){
+
+
+header{
+
+    flex-direction:column;
+
+    gap:20px;
+
+    padding:20px;
+
+}
+
+
+
+nav ul{
+
+    flex-direction:column;
+
+}
+
+
+
+nav ul li{
+
+    margin:10px;
+
+}
+
+
+
+.produk{
+
+    padding:30px;
+
+}
+
+
+
+.hero h1{
+
+    font-size:28px;
+
+}
+
+
+}
+
+/* ================= RATAKAN CARD PRODUK ================= */
+
+
+.produk-list .card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+}
+
+
+
+.produk-list .card h3{
+
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+
+.produk-list .card p{
+
+    height:30px;
+
+}
+
+
+
+.produk-list .card button{
+
+    margin-top:auto;
+
+}
+
+/* ================= CONTACT US ================= */
+
+
+.contact-card{
+
+    width:400px;
+
+    margin:40px auto;
+
+    text-align:center;
+
+}
+
+
+
+.contact-card h3{
+
+    color:#111;
+
+    font-size:25px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.contact-card p{
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+
+}

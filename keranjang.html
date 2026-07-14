@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Keranjang - Arga Privè</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+
+<h2>Arga Privè</h2>
+
+</div>
+
+</header>
+
+
+
+
+<section class="produk">
+
+
+<h2>Keranjang Belanja</h2>
+
+
+<div id="isiKeranjang"></div>
+
+
+
+<h2 id="totalHarga">
+Total : Rp0
+</h2>
+
+
+
+<a href="pembayaran.html" class="checkout">
+Bayar Sekarang
+</a>
+
+
+
+</section>
+
+
+
+
+
+<script>
+
+
+// ambil data keranjang
+
+let keranjang = JSON.parse(
+localStorage.getItem("keranjang")
+) || [];
+
+
+
+// memperbaiki data lama
+
+keranjang = keranjang.map(item => {
+
+
+    return {
+
+        nama : item.nama,
+
+        harga : Number(item.harga),
+
+        jumlah : Number(item.jumlah) || 1
+
+    };
+
+
+});
+
+
+
+
+
+function tampilKeranjang(){
+
+
+let isi = document.getElementById("isiKeranjang");
+
+
+isi.innerHTML="";
+
+
+let total = 0;
+
+
+
+
+if(keranjang.length === 0){
+
+
+isi.innerHTML = 
+"<h3>Keranjang masih kosong</h3>";
+
+
+document.getElementById("totalHarga").innerHTML =
+"Total : Rp0";
+
+
+return;
+
+
+}
+
+
+
+
+
+keranjang.forEach(function(item,index){
+
+
+
+let subtotal = item.harga * item.jumlah;
+
+
+total += subtotal;
+
+
+
+isi.innerHTML += `
+
+
+<div class="card">
+
+
+<h3>${item.nama}</h3>
+
+
+<p>
+Rp${item.harga.toLocaleString("id-ID")}
+</p>
+
+
+
+<button onclick="kurang(${index})">
+-
+</button>
+
+
+
+<span>
+${item.jumlah}
+</span>
+
+
+
+<button onclick="tambah(${index})">
++
+</button>
+
+
+
+<br><br>
+
+
+
+<button onclick="hapus(${index})">
+Hapus
+</button>
+
+
+
+</div>
+
+
+
+`;
+
+
+
+});
+
+
+
+
+
+document.getElementById("totalHarga").innerHTML =
+
+
+"Total : Rp" + total.toLocaleString("id-ID");
+
+
+
+
+simpan();
+
+
+}
+
+
+
+
+
+
+
+
+// tambah jumlah barang
+
+
+function tambah(index){
+
+
+keranjang[index].jumlah = 
+Number(keranjang[index].jumlah) + 1;
+
+
+tampilKeranjang();
+
+
+}
+
+
+
+
+
+
+
+// kurangi jumlah barang
+
+
+function kurang(index){
+
+
+
+if(keranjang[index].jumlah > 1){
+
+
+keranjang[index].jumlah--;
+
+}
+
+
+tampilKeranjang();
+
+
+
+}
+
+
+
+
+
+
+
+
+// hapus barang
+
+
+function hapus(index){
+
+
+keranjang.splice(index,1);
+
+
+tampilKeranjang();
+
+
+}
+
+
+
+
+
+
+
+
+// simpan data
+
+
+function simpan(){
+
+
+localStorage.setItem(
+
+"keranjang",
+
+JSON.stringify(keranjang)
+
+);
+
+
+}
+
+
+
+
+
+tampilKeranjang();
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

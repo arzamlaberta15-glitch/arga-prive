@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Produk - Arga Privè</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <img src="arga-prive.jpeg" alt="Logo" width="50">
+        <h2>Arga Privè</h2>
+    </div>
+
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="produk.html">Produk</a></li>
+            <li><a href="promo.html">Promo</a></li>
+            <li><a href="contact us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="fitur">
+
+        <input type="text" id="search" placeholder="Cari produk...">
+
+        <button onclick="cariProduk()">🔍</button>
+
+        <a href="keranjang.html" class="cart">
+            🛒 Keranjang
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<section class="produk">
+
+<h2>Semua Produk Arga Privè</h2>
+
+
+<div class="produk-list">
+
+
+    <div class="card">
+        <img src="sweater1.jpeg">
+        <h3>Classic American Navy</h3>
+        <p>Rp345.000</p>
+
+        <button onclick="tambahKeranjang('Classic American Navy','345000')">
+            Beli
+        </button>
+    </div>
+
+
+
+    <div class="card">
+        <img src="sweater2.jpeg">
+        <h3>Light Heather Grey</h3>
+        <p>Rp320.000</p>
+
+        <button onclick="tambahKeranjang('Light Heather Grey','320000')">
+            Beli
+        </button>
+    </div>
+
+
+
+    <div class="card">
+        <img src="sweater3.jpeg">
+        <h3>Shadow Black Edition</h3>
+        <p>Rp300.000</p>
+
+        <button onclick="tambahKeranjang('Shadow Black Edition','300000')">
+            Beli
+        </button>
+    </div>
+
+
+
+    <div class="card">
+        <img src="sweater4.jpeg">
+        <h3>Retro College Navy</h3>
+        <p>Rp380.000</p>
+
+        <button onclick="tambahKeranjang('Retro College Navy','380000')">
+            Beli
+        </button>
+    </div>
+
+
+
+    <div class="card">
+        <img src="sweater5.jpeg">
+        <h3>Retro Jersey Polo Shirt</h3>
+        <p>Rp222.000</p>
+
+        <button onclick="tambahKeranjang('Retro Jersey Polo Shirt','222000')">
+            Beli
+        </button>
+    </div>
+
+
+
+    <div class="card">
+        <img src="sweater6.png">
+        <h3>Onyx Workshirt</h3>
+        <p>Rp259.000</p>
+
+        <button onclick="tambahKeranjang('Onyx Workshirt','259000')">
+            Beli
+        </button>
+    </div>
+
+
+
+    <div class="card">
+        <img src="topi.jpeg">
+        <h3>Cap Vintage Washed Black</h3>
+        <p>Rp149.000</p>
+
+        <button onclick="tambahKeranjang('Cap Vintage Washed Black','149000')">
+            Beli
+        </button>
+    </div>
+
+
+
+    <div class="card">
+        <img src="bag.jpeg">
+        <h3>Luxury Black Label</h3>
+        <p>Rp549.000</p>
+
+        <button onclick="tambahKeranjang('Luxury Black Label','549000')">
+            Beli
+        </button>
+    </div>
+
+
+
+    <div class="card">
+        <img src="sepatu.jpeg">
+        <h3>Classic Leather Oxford Black</h3>
+        <p>Rp1200000</p>
+
+        <button onclick="tambahKeranjang('Classic Leather Oxford Black','1200000')">
+            Beli
+        </button>
+    </div>
+
+
+
+    <div class="card">
+        <img src="jeans.jpeg">
+        <h3>Loose Fit Washed Black</h3>
+        <p>Rp300.000</p>
+
+        <button onclick="tambahKeranjang('Loose Fit Washed Black','300000')">
+            Beli
+        </button>
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+<footer>
+    <p>© 2026 ARGA PRIVE</p>
+</footer>
+
+
+
+
+<script>
+
+
+// SEARCH PRODUK
+
+function cariProduk(){
+
+    let input = document
+    .getElementById("search")
+    .value
+    .toLowerCase();
+
+
+    let produk = document
+    .getElementsByClassName("card");
+
+
+    for(let i=0; i<produk.length; i++){
+
+
+        let nama = produk[i]
+        .getElementsByTagName("h3")[0]
+        .innerText
+        .toLowerCase();
+
+
+        if(nama.includes(input)){
+
+            produk[i].style.display="block";
+
+        }
+
+        else{
+
+            produk[i].style.display="none";
+
+        }
+
+    }
+
+}
+
+
+
+
+
+// TAMBAH KERANJANG
+
+function tambahKeranjang(nama,harga){
+
+
+let keranjang = JSON.parse(
+localStorage.getItem("keranjang")
+) || [];
+
+
+// cek apakah barang sudah ada
+
+let ada = keranjang.find(
+item => item.nama === nama
+);
+
+
+
+if(ada){
+
+    ada.jumlah++;
+
+}
+
+else{
+
+
+    keranjang.push({
+
+        nama:nama,
+
+        harga:Number(harga),
+
+        jumlah:1
+
+    });
+
+
+}
+
+
+
+localStorage.setItem(
+
+"keranjang",
+
+JSON.stringify(keranjang)
+
+);
+
+
+
+alert(nama+" masuk keranjang!");
+
+}
+
+</script>
+
+
+</body>
+</html>
